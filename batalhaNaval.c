@@ -8,11 +8,29 @@ int main() {
 
     char letras[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}; // Linha Horizontal de Coordenadas (letras de A a J)
     int tabuleiro[10][10] = {0}; // Exibição Do Tabuleiro 10x10 (0 Indica Agua)
-    tabuleiro[6][3] = 3, tabuleiro[7][3] = 3, tabuleiro[8][3] = 3; // Coordenadas do Primeiro Navio (7, D), (8, D) e (9, D)
-    tabuleiro[3][5] = 3, tabuleiro[3][6] = 3, tabuleiro[3][7] = 3; // Coordenadas do Segundo Navio  (4, F), (4, G) e (4, H)
 
     // Exibindo a Linha Superior do Tabuleiro(Coordenadas Horizontais de A a J)
     printf("  "); // Espaço Para Alinhar a Primeira Linha Que Exibe As Letras das Coordenadas
+
+    for (int i = 6; i <= 8; i++) // Coordenadas do Primeiro Navio (7, D), (8, D) e (9, D)
+    {
+        tabuleiro[i][3] = 3;
+    }
+
+    for (int j = 5; j <= 7; j++) // Coordenadas do Segundo Navio  (4, F), (4, G) e (4, H)
+    {
+        tabuleiro[3][j] = 3;
+    }
+
+    for (int i = 0 ; i <= 2; i++) // Coordenadas do Terceiro Navio  (1, A), (2, B) e (3, C)
+    {
+        tabuleiro[i][i] = 3;
+    }
+     
+    for (int i = 7, j = 6; i >= 5 && j <= 8; i--, j++) // Coordenadas do Quarto Navio  (8, G), (7, H) e (6, I)
+    {
+       tabuleiro[i][j] = 3; 
+    }
 
     for (int i = 0; i < 10; i++) // Exibição Das Letras das Coordenadas
     {
