@@ -22,7 +22,7 @@ int main() {
         tabuleiro[3][j] = 3;
     }
 
-    for (int i = 0 ; i <= 2; i++) // Coordenadas do Terceiro Navio  (1, A), (2, B) e (3, C)
+    for (int i = 0; i <= 2; i++) // Coordenadas do Terceiro Navio  (1, A), (2, B) e (3, C)
     {
         tabuleiro[i][i] = 3;
     }
@@ -31,6 +31,8 @@ int main() {
     {
        tabuleiro[i][j] = 3; 
     }
+
+
 
     for (int i = 0; i < 10; i++) // Exibição Das Letras das Coordenadas
     {
@@ -45,35 +47,32 @@ int main() {
         printf("%2d", i + 1);
         for (int j = 0; j < 10; j++) // Exibição Do Tabuleiro(0 Para Agua e 3 Para Navio)
         {
+            // Area de Habilidade Especial
+            if (i == 3 && j == 2 || i == 4 && j == 1 || i == 4 && j == 2 || i == 4 && j == 3 ||
+                i == 5 && j == 0 ||i == 5 && j == 1 ||i == 5 && j == 2 ||i == 5 && j == 3 ||
+                i == 5 && j == 4) // Se Estiver a Condição For Verdadeira Atribui 1 ao Tabuleiro
+            {
+
+                tabuleiro[i][j] = 1; // Atribuindo o Valor 1 Se  Condição for Verdadeira
+
+            } else if (i == 0 && j == 6 || i == 1 && j == 4 || i == 1 && j == 5 || i == 1 && j == 6 ||
+                i == 1 && j == 7 ||i == 1 && j == 8 ||i == 2 && j == 6 )
+            {
+
+                    tabuleiro[i][j] = 1;
+
+            } else if (i == 7 && j == 8 || i == 8 && j == 7 || i == 8 && j == 8 || i == 8 && j == 9 ||
+                i == 9 && j == 8 )
+            {
+
+                tabuleiro[i][j] = 1;
+
+            }
+
             printf("%2d", tabuleiro[i][j]); // Exibe o Valor de Tabuleiro na Posição (i, j)
         }
         printf("\n"); // Quebra de Linha Após Cada Linha Do Tabuleiro
     }
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
-
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
 
     return 0;
 }
